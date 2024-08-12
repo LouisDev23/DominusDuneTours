@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="dominus logo.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-fGpN/HfRilZElyz9S0i+TKcCUe/Zp3sXepWStzldw6YSFzJXtj0RZQf97ZvQkUmcH4Txj3RQw5ewgCjY5Dwv2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Dominus Dune Tours</title>
+  <style>
+    /* Basic Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(250, 242, 237);
+    }
+ 
+
+.container-top{
+  background: url("Photos/dominus bg.jpg") center center/cover no-repeat;
+      border-radius: 0 0 25px 25px;
+      height:500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+}
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: 0; /* Adjusted to make space for navbar */
+      
+    }
+    .info p{
+      width: 50%;
+    }
+   
+     /* Tour Section Styles */
+     .tour-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      width: 250px;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition-duration: 1s;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+    }
+
+    .card .card-content {
+      position: relative;
+      text-align: center;
+      width: 100%;
+    }
+
+    .card .card-content h2 {
+      margin: 5px;
+      font-size: 18px;
+      mix-blend-mode: color-burn;
+    }
+
+    .card .card-content .read-more {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    .video-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between videos */
+}
+
+iframe {
+  width: 100%; /* Take full width of its container */
+  max-width: 100%; /* Ensure responsiveness */
+}
+
+
+    .btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .book-btn {
+      background-color: #063000;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .book-btn:hover {
+      background-color: #555;
+    }
+
+
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.social-icons a img {
+  width: 40px;
+  height: auto;
+}
+
+   
+  @media only screen and (max-width: 768px) {
+
+  .popup-content {
+    max-width: 90%;
+  }
+
+         p {
+        font-size: 16px;
+        margin: 0 auto;
+        max-width: 400px;
+      }
+    
+
+    /* Introduction Section */
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+    }
+    .info p{
+      width: 80%;
+      padding: 10px;
+    }
+
+
+    /* Tour Section Styles */
+    .tour-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      width: 200px;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition-duration: 1s;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+    }
+
+    .card .card-content {
+      position: absolute;
+      bottom: 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .card .card-content h2 {
+      margin: 5px;
+      font-size: 18px;
+      mix-blend-mode: color-burn;
+    }
+
+    .card .card-content .read-more {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    .video-container {
+    flex-direction: column; /* Stack videos vertically on smaller screens */
+    margin: 10px;
+  }
+
+    .social-media-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      text-decoration: none;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+    .site-footer .row{
+    display: flex;
+    flex-direction: column;
+  }
+} 
+  </style>
+</head>
+
+<body>
+ 
+  <div class="topnav" id="myTopnav">
+    <img src="Photos/dominus logo.jpg" id="logo" alt="Dominus Logo" class="action" width="100px" height="auto" />
+    <div class="dropdown">
+      <button class="dropbtn"><img src="Photos/jeep_5262039.png" width="20px"> Tours
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="Sandwich _harbour.html">Sandwich Harbor</a>
+        <a href="Sandwich_self_drive.html">Sandwich Harbor Self-Drive</a>
+        <a href="Moonvalley_Welwitchia.html">Moonvalley/Welwitchia Tour</a>
+        <a href="Spitzkoppe.html">Spitzkoppe</a>
+        <a href="Dune_board_tour.html">Dune board Tour</a>
+        <a href="Langstrand_expedition.html">Langstrand Dune Expedition</a>
+        <a href="Langstrand_sundowner.html">Langstrand Dune Sundowner</a>
+        <a href="Special_requests.html">Special Requests</a>
+      </div>
+    </div>  
+    <div class="dropdown">
+      <button class="dropbtn"><img src="Photos/picture_7596772.png" width="20px"> Gallery 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="Sandwich _harbour.html#gallery">Sandwich Harbor</a>
+        <a href="Sandwich_self_drive.html#gallery">Sandwich Harbor Self-Drive</a>
+        <a href="Moonvalley_Welwitchia.html#gallery">Moonvalley/Welwitchia Tour</a>
+        <a href="Spitzkoppe.html#gallery">Spitzkoppe</a>
+        <a href="Dune_board_tour.html#gallery">Dune board Tour</a>
+        <a href="Langstrand_expedition.html#gallery">Langstrand Dune Expedition</a>
+        <a href="Langstrand_sundowner.html#gallery">Langstrand Dune Sundowner</a>
+        <a href="Special_requests.html#gallery">Special Requests</a>
+      </div>
+    </div>  
+    <a href="#" id="contact-us-link"><img src="Photos/contact-us_6766388.png" width="20px"> Contact Us</a>     
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  
+   <!-- Popup container -->
+   <div class="popup-overlay" id="contact-popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h3>Bookings:</h3>
+      <p>Business Name: Dominus Dune Tours</p>
+      <p>Phone Number: +264 81 633 5151</p>
+<h3>More information follow us at:</h3>
+<ul class="social-icons">
+  <a href="https://www.facebook.com/share/VUa9AeseEsPEuhJH/?mibextid=qi2Omg" target="_blank"
+  rel="noopener noreferrer">
+  <img src="facebook.png" alt="Facebook" width="20">
+</a>
+<a href="https://www.instagram.com/johannestruter/" target="_blank" rel="noopener noreferrer">
+  <img src="instagram.png" alt="Instagram" width="20">
+</a>
+<a href="https://www.youtube.com/@DominusDuneDrivingSchool" target="_blank" rel="noopener noreferrer">
+  <img src="youtube.png" alt="YouTube" width="20">
+</a>
+</ul>
+    </div>
+  </div>
+
+<div class="container-top">
+  <!-- Introduction Section -->
+  <div class="info">
+    <h1>Dominus Dune Tours</h1>
+    <p>Dominus Dune Tours is a business that offers a variety of dune tours in the Namib desert, ranging from Sandwich
+      Harbour tours to sunsets over the Atlantic to family day dune drive excursions. You can enjoy the stunning
+      scenery, wildlife, and culture of the desert with professional and friendly guides.</p>
+  </div>
+</div>
+   <h2>Explore Our Latest Tours</h2>
+
+  <section class="tour-section">
+    <!-- Card 1: Sandwich Harbor -->
+    <div class="card">
+      <a href="Sandwich _harbour.html"><img src="Photos/Sandwich/IMG-20231208-WA0013.jpg">
+      <div class="card-content">
+        <h2>Sandwich Harbor</h2>
+        <p>Buckle up for an adrenaline-fueled 4x4 drive across the shifting dunes of the Namib
+          desert, where you will witness the blazing desert dunes plunging into the cold
+          Atlantic Ocean creating a contrast nothing short of magical. If we are lucky enough,
+          we might stumble upon some indigenous wildlife, so keep those camera’s ready!
+          And finally we will arrive at Sandwich Harbor,...Read more</p>
+      </div></a>
+    </div>
+  
+    <!-- Card 2: Sandwich Harbor Self-Drive -->
+    <div class="card">
+      <img src="Photos/Sandwich/IMG-20231208-WA0014.jpg">
+      <div class="card-content">
+        <h2>Sandwich Harbor Self-Drive</h2>
+      
+      </div>
+    </div>
+  
+    <!-- Card 3: Moonvalley/Welwitchia Tour -->
+    <div class="card">
+      <img src="Photos/capecrossfotos/IMG-20240419-WA0030 (002).jpg">
+      <div class="card-content">
+        <h2>Moonvalley/Welwitchia Tour</h2>
+        
+      </div>
+    </div>
+  
+    <!-- Card 4: Spitzkoppe -->
+    <div class="card">
+      <img src="Photos/spitzkoppefotos/IMG-20240419-WA0038 (002).jpg">
+      <div class="card-content">
+        <h2>Spitzkoppe</h2>
+        
+      </div>
+    </div>
+  
+    <!-- Card 5: Dune board Tour -->
+    <div class="card">
+      <img src="Photos/sesriemenhamersteinfotos/IMG-20240419-WA0083 (002).jpg">
+      <div class="card-content">
+        <h2>Dune board Tour</h2>
+       
+      </div>
+    </div>
+  
+    <!-- Card 6: Langstrand Dune Expedition -->
+    <div class="card">
+      <img src="Photos/langstand_dune_excursion/IMG-20231208-WA0038.jpg">
+      <div class="card-content">
+        <h2>Langstrand Dune Expedition</h2>
+       
+      </div>
+    </div>
+  
+    <!-- Card 7: Langstrand Dune Sundowner -->
+    <div class="card">
+      <img src="Photos/sandwichharborfotos/IMG-20240419-WA0109 (002).jpg">
+      <div class="card-content">
+        <h2>Langstrand Dune Sundowner</h2>
+       
+      </div>
+    </div>
+  
+    <!-- Card 8: Special Requests -->
+    <div class="card">
+      <img src="Photos/langstrandsundownerfotos/IMG-20240419-WA0014 (002).jpg">
+      <div class="card-content">
+        <h2>Special Requests</h2>
+       
+      </div>
+    </div>
+  </section>
+  
+  <!--Video section-->  
+  <h2>Explore Our Videos</h2>
+
+  <section class="video-section">
+    <div class="video-container" style="background-image: url('path/to/cover_image_1.jpg');">
+      <iframe src="https://www.youtube.com/embed/9L9lwWqD3Io" frameborder="0" allowfullscreen></iframe>
+    </div>
+  
+    <div class="video-container" style="background-image: url('path/to/cover_image_2.jpg');">
+      <iframe src="https://www.youtube.com/embed/CBm3hpTovWI" frameborder="0" allowfullscreen></iframe>
+    </div>
+  
+    <div class="video-container" style="background-image: url('path/to/cover_image_3.jpg');">
+      <iframe src="https://www.youtube.com/embed/b9xv_hWADLs" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+  
+  
+  <!-- Social Media Links -->
+  
+
+ <!-- Site footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-xs-6 col-md-3">
+        <h6>Tours</h6>
+        <ul>
+          <li>Sandwich Harbor</li>
+          <li>Sandwich Harbor Self-Drive</li>
+          <li>Moonvalley/Welwitchia Tour</li>
+          <li>Spitzkoppe</li>
+          <li>Dune board Tour</li>
+          <li>Langstrand Dune Expedition</li>
+          <li>Langstrand Dune Sundowner</li>
+          <li>Special Requests</li>
+        </ul>
+      </div>
+
+      <div><h6>Follow us </h6>
+        <ul class="social-icons">
+          <a href="https://www.facebook.com/share/VUa9AeseEsPEuhJH/?mibextid=qi2Omg" target="_blank"
+          rel="noopener noreferrer">
+          <img src="facebook.png" alt="Facebook" width="20">
+        </a>
+        <a href="https://www.instagram.com/johannestruter/" target="_blank" rel="noopener noreferrer">
+          <img src="instagram.png" alt="Instagram" width="20">
+        </a>
+        <a href="https://www.youtube.com/@DominusDuneDrivingSchool" target="_blank" rel="noopener noreferrer">
+          <img src="youtube.png" alt="YouTube" width="20">
+        </a>
+        </ul>
+      </div>
+    </div>
+  </div>
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        <p>&copy; 2024 Dominus Dune Driving. All rights reserved.</p>
+      </div>
+
+        
+</footer>
+  
+  <script src="script.js"></script> <!-- Link to your JavaScript file -->
+
+  <script>
+   
+  </script>
+</body>
+
+</html>
