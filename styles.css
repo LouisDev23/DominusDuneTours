@@ -1,0 +1,989 @@
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* Modal overlay */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.9);
+}
+
+/* Modal image */
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Arrows */
+.prev, .next {
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  user-select: none;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 10001;
+  transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Close modal when clicking outside arrows */
+.modal img {
+  cursor: default;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .prev, .next {
+    font-size: 28px;
+    padding: 12px;
+  }
+}
+
+
+    /* General Layout for Desktop and Larger Screens */
+.containerimg {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Flexible columns with a minimum width of 200px */
+  gap: 15px; /* Space between cards */
+  padding: 10px;
+  align-items: center; /* Centers the content vertically inside each grid cell */
+}
+
+/* Styling for individual cards with fixed size */
+.card {
+  background: #fff;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  width: 200px; /* Fixed width */
+  height: 200px; /* Fixed height */
+  display: flex; /* Use flexbox inside the card to center the image */
+  justify-content: center; /* Center the image horizontally within the card */
+  align-items: center; /* Center the image vertically within the card */
+  position: relative; /* Allows the card to adjust based on image size */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Optional hover effect to enlarge the card */
+}
+
+/* Image styling */
+.card img {
+  width: 100%; /* Image takes up the full width of the card */
+  height: 100%; /* Image takes up the full height of the card */
+  object-fit: cover; /* Ensures the image covers the entire area of the card without stretching */
+  display: block;
+  border-bottom: 2px solid #ddd; /* Optional: Add a bottom border to the image */
+}
+
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+  .containerimg {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* More compact columns on smaller screens */
+    gap: 10px; /* Reduce gap on smaller screens */
+  }
+
+  .card {
+    width: 150px; /* Fixed width */
+  height: 150px; /* Fixed height */
+    max-width: 100%; /* Ensure card does not overflow */
+    padding: 5px; /* Add some padding inside the card on mobile */
+  }
+
+  .card img {
+    height: 100%; /* Ensure image covers the full height of the card */
+    object-fit: cover; /* Ensure images cover the card area */
+  }
+}
+
+/* Very small screens (e.g., phones in portrait mode) */
+@media (max-width: 480px) {
+  .containerimg {
+    grid-template-columns: 1fr; /* Single column layout for very small screens */
+    gap: 5px; /* Reduce gap even more */
+  }
+
+  .card {
+    width: 130px; /* Fixed width */
+  height: 130px; /* Fixed height */
+    max-width: 100%; /* Ensure card fits within the screen */
+    padding: 3px; /* Reduce padding inside the card */
+  }
+
+  .card img {
+    height: 100%; /* Ensure image covers the full height of the card */
+    object-fit: cover; /* Ensure images cover the card area */
+  }
+}
+
+
+/* ===============================
+   NAVBAR
+=============================== */
+#navbar {
+  background-color: white;
+    position: relative; /* ensures absolute children are positioned relative to this */
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+/* Hide booking popup on page load to prevent flashing */
+#contact-popup {
+  display: none;
+}
+
+#logo-container {
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  height: 40px;
+  width: auto;
+}
+
+#menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+#menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+#nav-links {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+#nav-links a {
+  color: #020202;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#nav-links a:hover {
+  background-color: #f0f0f0;
+}
+
+#nav-links a img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===============================
+   DROPDOWN
+=============================== */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  text-align: left;
+}
+
+
+.dropbtn:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+}
+
+/* ===============================
+   DROPDOWN CONTENT
+=============================== */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  padding: 3px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 600px;
+  max-height: 450px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 500;
+}
+/* Desktop dropdown */
+.dropdown:hover .dropdown-content,
+.dropdown.active .dropdown-content {
+  display: flex;
+}
+
+.dropdown-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-category {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.dropdown-column a {
+  color: #555;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s;
+}
+
+.dropdown-column a:hover {
+  color: #007bff;
+}
+
+/* Guided Tours Flex */
+.guided-tours-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.guided-column {
+  flex: 1 1 45%;
+  min-width: 140px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+/* ===============================
+   FOOTER
+=============================== */
+.site-footer {
+  background-color: #5e5959;
+  color: #fff;
+  padding: 40px 20px 20px;
+  margin-top: 60px;
+  max-width: 100%;
+  box-shadow: 0 -3px 12px rgba(0,0,0,0.3);
+}
+
+.site-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-column h6 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #fff;
+  border-bottom: 2px solid #9333EA;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-column p {
+  line-height: 1.6;
+  margin: 5px 0;
+  color: #ddd;
+}
+
+.footer-column a:hover {
+  color: #9333EA;
+}
+
+/* FOLLOW ICONS */
+.footer-follow .social-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer-follow .social-icons img {
+  width: 28px;
+  height: 28px;
+  transition: transform .3s, filter .3s;
+}
+
+.footer-follow .social-icons img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.4);
+}
+
+/* FOOTER BOTTOM */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 1024px) {
+  .guided-tours-columns {
+    flex-direction: column;
+  }
+}
+
+/* WhatsApp Booking Button */
+.btn {
+  padding: 10px 16px;
+  background-color: #25D366; /* WhatsApp green */
+  border: none;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn:hover {
+  background-color: #1ebe57;
+}
+
+/* MOBILE NAVBAR & DROPDOWN */
+@media (max-width: 768px) {
+
+  #navbar {
+    padding: 10px 15px;
+    position: sticky;
+    top: 0;
+  }
+
+  #logo-container {
+    flex: 1;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  #nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-sizing: border-box;
+  }
+
+  #nav-links.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #nav-links a, .dropbtn {
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    box-sizing: border-box;
+    background-color: #fff;
+    transition: background-color 0.2s ease;
+  }
+
+  #nav-links a:hover, .dropbtn:hover {
+    background-color: #f8f9fa;
+  }
+
+  .dropbtn {
+    justify-content: flex-start;
+  }
+
+  /* Hide logo when mobile menu is active */
+  #nav-links.active ~ #logo-container #logo {
+    display: none;
+  }
+
+  /* MOBILE DROPDOWN FLEX 3 COLUMNS */
+  .dropdown-content {
+    position: static;           
+    display: none;              
+    padding: 10px;              
+    flex-direction: row;        
+    flex-wrap: wrap;            
+    gap: 10px;                  
+    width: 100%;                
+    max-height: none;           
+    overflow-y: visible;        
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    justify-content: flex-start;
+  }
+
+  .dropdown-column {
+    flex: 1 1 calc(33.33% - 10px); /* 3 columns on mobile */
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  }
+
+  .dropdown.active .dropdown-content {
+    display: flex;
+  }
+
+  /* STACK SINGLE COLUMN ON VERY SMALL SCREENS */
+  @media (max-width: 480px) {
+    .dropdown-column {
+      flex: 1 1 100%;
+    }
+  }
+
+  .guided-column {
+    flex: 1 1 100%;
+  }
+  .guided-tours-columns, .guided-column {
+    text-align: left;
+  }
+  .guided-tours-columns {
+    flex-direction: row;
+  }
+}
+
+
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.pricecard {
+  background-color: #fffc;
+  border: 2px solid #8100a1;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px auto;
+  max-width: 400px;
+  color: #000;
+  box-shadow: 0 4px 8px rgb(129 0 161);
+}
+
+.pricecard h3 {
+  text-align: center;
+  color: #8100a1;
+  margin-bottom: 15px;
+}
+
+.pricecard label {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.pricecard select,
+.pricecard input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.pricecard input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.2);
+  vertical-align: middle;
+}
+
+.pricecard p {
+  margin-top: 15px;
+  font-weight: 700;
+  color: #8100a1;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .pricecard {
+    max-width: 90%;
+    padding: 10px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: calc(2.5vw + 1.5rem);
+}
+
+h2 {
+  font-size: calc(1.5vw + 1rem);
+  text-align: center;
+  margin: 0;
+}
+
+h3 {
+  font-size: calc(1vw + 0.5rem);
+}
+
+.title-info {
+  padding: 5% 15%;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  text-align: center;
+  margin: 10% auto;
+  max-width: 80%;
+}
+
+.img {
+  width: 250px;
+  aspect-ratio: 2 / 1;
+  margin: 10px;
+  border: 5px solid #fefae0;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.img:hover {
+  border: 5px solid #fff;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.containerimg {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 480px) {
+  .containerimg {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 5px;
+  }
+  .containerimg .img {
+    width: 90vw;
+    max-width: 300px;
+    height: auto;
+    margin: 0;
+  }
+}
+
+.site-footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  max-width: 100%;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 0 auto 30px;
+}
+
+.footer-column {
+  width: 280px;
+  color: #ccc;
+}
+
+.footer-column h6 {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.footer-column p,
+.footer-column a {
+  color: #eee;
+  font-size: 14px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-follow {
+  width: 280px;
+  text-align: left;
+}
+
+.footer-follow h6 {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.social-icons a img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid #444;
+  font-size: 13px;
+  color: #888;
+}
+
+.footer-follow {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-follow h6 {
+  font-size: 20px;
+}
+
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-icons img {
+  width: 10vw;
+  max-width: 50px;
+  min-width: 30px;
+  height: auto;
+  margin: 0 5px;
+}
+
+.back-to-top a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.back-to-top a:hover {
+  text-decoration: underline;
+}
+
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 0.7);
+  z-index: 999;
+}
+
+.popup-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.2);
+  z-index: 1000;
+  border-radius: 10px;
+}
+
+.popup-content h3 {
+  color: #333;
+}
+
+.popup-content p {
+  color: #555;
+}
+
+.popup-content .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #aaa;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup-content .social-icons img {
+  width: 30px;
+  margin: 10px;
+}
+
+.pricing {
+  background-color: #332f3273;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+.pricing h2 {
+  color: #fff;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #8100a1;
+  padding-bottom: 5px;
+}
+
+.pricing p {
+  color: #fff;
+  line-height: 1.6;
+}
+
+.pricing strong {
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.pricing em {
+  color: #b6b6b6;
+}
+
+.pricing ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.pricing li {
+  margin-bottom: 10px;
+}
+
+.pricing b {
+  color: #f04cb9;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.pricing b:hover {
+  color: #0056b3;
+}
+
+.reasons {
+  background-color: rgb(255 255 255 / 0.623);
+  padding: 20px;
+  border: solid #000 2px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+}
+
+.reasons h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.reasons ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.reasons ul li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 40px;
+  background-image: url(Photos/dune.png);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
+.reasons h2,
+.reasons ul {
+  animation: fadeIn 1s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.reasons h2:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.reasons ul:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.reasons h2:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+.reasons ul:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #fff0;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+
+ul {
+  list-style-type: disc;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .img {
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    border: 5px solid #fefae0;
+    transition-duration: 0.5s;
+  }
+  .img:hover {
+    border: 5px solid #fff;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .containerimg {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 5px;
+  }
+  .containerimg .img {
+    width: 90vw;
+    max-width: 300px;
+    height: auto;
+    margin: 0;
+  }
+}

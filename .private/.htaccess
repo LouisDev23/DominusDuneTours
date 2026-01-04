@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?dominusdunedriving\.com$ [NC]
+RewriteRule ^(.*)$ https://www.dominusdunetours.com/$1 [R=301,L]

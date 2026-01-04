@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /submit_review.php
+Disallow: /update_profile.php
+Disallow: /edit_profile.html
+Disallow: /review_page.php
+
+Sitemap: https://www.dominusdunetours.com/sitemap.xml
+
+# Crawl-delay to reduce server load (optional)
+
+# Allow all other content
+Allow: /

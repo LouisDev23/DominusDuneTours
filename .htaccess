@@ -1,0 +1,44 @@
+# ==============================================
+# Dominus Dune Tours - Video Fix & MIME Types
+# ==============================================
+
+# Enable byte-range requests (so videos can stream properly)
+<IfModule mod_headers.c>
+    <FilesMatch "\.(mp4|webm|ogg)$">
+        Header set Accept-Ranges bytes
+    </FilesMatch>
+</IfModule>
+
+# Set correct MIME types for video files
+AddType video/mp4 mp4
+AddType video/webm webm
+AddType video/ogg ogg
+
+# Caching for faster loading
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|css|js)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "public, max-age=3600"
+    </FilesMatch>
+</IfModule>
+
+# Optional: security (prevent hotlinking)
+# RewriteEngine On
+# RewriteCond %{HTTP_REFERER} !^$
+# RewriteCond %{HTTP_REFERER} !^https?://(www\.)?dominusdunetours\.com/ [NC]
+# RewriteRule \.(mp4|webm|ogg)$ - [F,NC,L]

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+>
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.dominusdunetours.com/index.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+  </url>
+
+  <!-- Sandwich Harbour -->
+  <url>
+    <loc>https://www.dominusdunetours.com/Sandwich_harbour.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.dominusdunetours.com/Photos/sandwichharborfotos/20240328_123436 - Copy - Copy.jpg</image:loc>
+      <image:caption>Sandwich Harbour Dunes</image:caption>
+      <image:title>Sandwich Harbour Dune Adventure</image:title>
+    </image:image>
+  </url>
+
+  <!-- Added important tours -->
+  <url>
+    <loc>https://www.dominusdunetours.com/SandwichHarbourSunsetAdventure.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority> <!-- Higher priority -->
+  </url>
+
+  <url>
+    <loc>https://www.dominusdunetours.com/RentAGuide.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>weekly</changefreq> <!-- More frequent as requested -->
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dominusdunetours.com/DuneDriving.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Moon Valley -->
+  <url>
+    <loc>https://www.dominusdunetours.com/Moonvalley.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Spitzkoppe -->
+  <url>
+    <loc>https://www.dominusdunetours.com/Spitzkoppe.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Langstrand Dune Excursion -->
+  <url>
+    <loc>https://www.dominusdunetours.com/Langstrand_dune_excursion.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Dune Board Tour -->
+  <url>
+    <loc>https://www.dominusdunetours.com/Dune_board_tour.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Sossusvlei -->
+  <url>
+    <loc>https://www.dominusdunetours.com/sossusvlei.html</loc>
+    <lastmod>2025-01-15T13:11:52+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.dominusdunetours.com/Photos/Sossusvlei/WhatsApp Image 2025-01-15 at 13.11.52.jpeg</image:loc>
+      <image:caption>Sossusvlei Dunes</image:caption>
+      <image:title>Sossusvlei Dune Adventure</image:title>
+    </image:image>
+  </url>
+
+  <!-- About Us -->
+  <url>
+    <loc>https://www.dominusdunetours.com/AboutUs.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Combination Tours -->
+  <url>
+    <loc>https://www.dominusdunetours.com/Combination_Tours.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Sandwich Self Drive -->
+  <url>
+    <loc>https://www.dominusdunetours.com/Sandwich-self-drive.html</loc>
+    <lastmod>2025-01-15T13:11:52+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.dominusdunetours.com/Photos/sandwichharborselfdrivefotos/20240106_150649.jpg</image:loc>
+      <image:caption>Sandwich Self Drive Adventure</image:caption>
+      <image:title>Sandwich Self Drive Tour</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dominusdunetours.com/Photos/sandwichharborselfdrivefotos/20240106_152431.jpg</image:loc>
+      <image:caption>Sandwich Self Drive Adventure</image:caption>
+      <image:title>Sandwich Self Drive Tour</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dominusdunetours.com/Photos/sandwichharborselfdrivefotos/20241002_112628.jpg</image:loc>
+      <image:caption>Sandwich Self Drive Adventure</image:caption>
+      <image:title>Sandwich Self Drive Tour</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dominusdunetours.com/Photos/sandwichharborselfdrivefotos/20241012_174747.jpg</image:loc>
+      <image:caption>Sandwich Self Drive Adventure</image:caption>
+      <image:title>Sandwich Self Drive Tour</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dominusdunetours.com/Photos/sandwichharborselfdrivefotos/20241012_174807.jpg</image:loc>
+      <image:caption>Sandwich Self Drive Adventure</image:caption>
+      <image:title>Sandwich Self Drive Tour</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dominusdunetours.com/Photos/sandwichharborselfdrivefotos/20241012_174837.jpg</image:loc>
+      <image:caption>Sandwich Self Drive Adventure</image:caption>
+      <image:title>Sandwich Self Drive Tour</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dominusdunetours.com/Photos/sandwichharborselfdrivefotos/20241012_174840.jpg</image:loc>
+      <image:caption>Sandwich Self Drive Adventure</image:caption>
+      <image:title>Sandwich Self Drive Tour</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dominusdunetours.com/Photos/sandwichharborselfdrivefotos/20241012_174858.jpg</image:loc>
+      <image:caption>Sandwich Self Drive Adventure</image:caption>
+      <image:title>Sandwich Self Drive Tour</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.dominusdunetours.com/SandwichHarbourSunsetAdventure.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dominusdunetours.com/RentAGuide.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dominusdunetours.com/DuneDriving.html</loc>
+    <lastmod>2025-01-01T00:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
